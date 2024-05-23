@@ -5,6 +5,6 @@
   "manifest_version": 3,
   "action": {
     "default_popup": "hydrator.html",
-    "default_icon": "droplet.png"
+    "default_icon": "bottle_icon.png"
   }
 }

@@ -46,7 +46,20 @@ function duration(milliseconds) {
       clearInterval(timer);
       console.log('hi from zero');
       document.getElementById('countDown').innerHTML = 'Drink!';
-      setTimeout(() => alert('drink water, you fool!'), 500); //mystery solution
+      // before alert
+      document.querySelector('.time-container').style.backgroundColor =
+        'rgb(53, 174, 174)';
+      // setTimeout()
+      setTimeout(() => {
+        // alert
+        alert('drink water, you fool!');
+        // after alert
+        document.querySelector('.time-container').style.backgroundColor =
+          '#fff';
+
+        duration(milliseconds);
+      }, 500);
+
       return;
     }
 
@@ -58,10 +71,7 @@ function duration(milliseconds) {
   }, 1000);
 }
 
-//helper function checkIfActive
-//invoke on interval (every one minute)
-//invoke on start of duration function
-//fromTime, toTime
+//Function to compare current time of day to Active Duration settings (fromTime and toTime)
 function checkIfActive() {
   const currTime = new Date().getHours();
   console.log('currentTime =', currTime);
@@ -77,15 +87,33 @@ function checkIfActive() {
       'https://ugokawaii.com/wp-content/uploads/2022/07/dog-drink-water.gif';
     return true;
   } else {
-    // swich img url
-    document.getElementById('img-dog2').src =
+    // swich img url if outside Active Duration
+    document.getElementById('img-dog').src =
       'https://media1.giphy.com/media/fAUvpKlrAftUIe4SQm/giphy.gif';
+
+    //add functionality to disable current timer
     return false;
   }
 }
-//if (currentTime > fromTime && currentTime < toTime)
-// if (9:30 > 9:00 && 9:30 < 12 pm)
-//extension is active
-//else extension is inactive
 
-//testing feature branch
+//when we change either toTime or fromTime, invoke function
+
+// //FUNCTION
+// function timeSelectionFixer() {
+//   const fromTime = Number(document.querySelector('#fromTime').value);
+//   console.log('fromTime =', fromTime);
+//   const toTime = Number(document.querySelector('#toTime').value);
+//   console.log('toTime =', toTime);
+
+//   if(fromTime > toTime)
+
+// }
+//if we changed from time
+//Condition if(fromTime > toTime){ toTime = fromTime}
+
+//if we changed to time
+//if (fromTime > toTime) fromTime = toTime
+
+//if(toTime(12am) = fromTime(11pm)){buttom work all day}
+
+//invoke checkIfActive
