@@ -72,10 +72,20 @@ function checkIfActive() {
 
   //Conditions
   if (currTime > fromTime && currTime < toTime) {
+    // og url
+    document.getElementById('img-dog').src =
+      'https://ugokawaii.com/wp-content/uploads/2022/07/dog-drink-water.gif';
     return true;
-  } else return false;
+  } else {
+    // swich img url
+    document.getElementById('img-dog2').src =
+      'https://media1.giphy.com/media/fAUvpKlrAftUIe4SQm/giphy.gif';
+    return false;
+  }
 }
 //if (currentTime > fromTime && currentTime < toTime)
 // if (9:30 > 9:00 && 9:30 < 12 pm)
 //extension is active
 //else extension is inactive
+
+//testing feature branch
